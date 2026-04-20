@@ -8,7 +8,7 @@ class PrinterI(Demo.Printer):
 
 communicator = Ice.initialize(sys.argv) 
 
-adapter = communicator.createObjectAdapterWithEndpoints("SimpleAdapter", "default -p 11000")
+adapter = communicator.createObjectAdapterWithEndpoints("SimpleAdapter", "default -p 5678")
 object = PrinterI()
 adapter.add(object, communicator.stringToIdentity("SimplePrinter"))
 adapter.activate()

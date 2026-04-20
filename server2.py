@@ -9,9 +9,19 @@ class PrinterI(Demo.Printer):
         print(self.t, s)
         return s + "*"
 
+    def sum(self, x, y, current=None):
+        res = x + y
+        print(f"Soma em {self.t} {res}")
+        return res
+
+    def mul(self, x1, x2, current=None):
+        res = x1 * x2 
+        print(f"Multiplicação em {self.t} {res}")
+        return res
+
 communicator = Ice.initialize(sys.argv) 
 
-adapter = communicator.createObjectAdapterWithEndpoints("SimpleAdapter", "default -p 11000")
+adapter = communicator.createObjectAdapterWithEndpoints("SimpleAdapter", "default -p 5678")
 object1 = PrinterI("Object1 says:")
 object2 = PrinterI("Object2 says:")
 adapter.add(object1, communicator.stringToIdentity("SimplePrinter1"))
